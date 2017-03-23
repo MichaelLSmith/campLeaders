@@ -1,0 +1,23 @@
+/*Bootstrap override*/
+.table-striped>tbody>tr:nth-of-type(odd) {
+    background-color: #EDEDED;
+}
+
+.leaderboard {
+  max-width: 85%;
+  margin: auto;
+}
+
+.title {
+  background: darkgreen;
+  color: white;
+  border-radius: 6px;
+}
+
+.title h1 {
+  text-align: center;
+  color: inherit;
+}
+thead th {
+  font-weight: 900;
+}
