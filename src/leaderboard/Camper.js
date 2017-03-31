@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-// import { raw } from '../fetch';
-// import { fetchCampersData } from '../fetch';
+import { fetchCampersData } from '../fetch';
 
 export default class Camper extends Component {
   constructor(){
     super();
-    this.state = {campers: [ {"username":"forkerino","img":"https://avatars.githubusercontent.com/u/16620061?v=3","alltime":1244,"recent":545,"lastUpdate":"2017-03-17T17:49:58.192Z"}]}
+    this.state = {campers: [ {"username":"forkerino","img":"https://avatars.githubusercontent.com/u/16620061?v=3","alltime":1248,"recent":545,"lastUpdate":"2017-03-17T17:49:58.192Z"}]}
   }
 
   setCampers(campers){
@@ -13,15 +12,19 @@ export default class Camper extends Component {
     )
   }
 
-  fetchCampersData = () => {  fetch('https://fcctop100.herokuapp.com/api/fccusers/top/recent')
-      .then(response => response.json())
-      .then(campers => {
-        this.setCampers(campers)
-    });
-  }
+  // fetchCampersData = () => {  fetch('https://fcctop100.herokuapp.com/api/fccusers/top/recent')
+  //     .then(response => response.json())
+  //     .then(campers => {
+  //       this.setCampers(campers)
+  //   });
+  // }
   componentDidMount(){
     console.log(this);
-    this.fetchCampersData(this.setCampers);
+    // this.fetchCampersData(this.setCampers);
+    fetchCampersData().then(
+      campers => { console.log(campers);
+        this.setCampers(campers);
+       });
   }
 
   render () {
