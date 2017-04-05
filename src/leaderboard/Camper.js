@@ -11,16 +11,8 @@ export default class Camper extends Component {
     this.setState({ campers: campers }
     )
   }
-
-  // fetchCampersData = () => {  fetch('https://fcctop100.herokuapp.com/api/fccusers/top/recent')
-  //     .then(response => response.json())
-  //     .then(campers => {
-  //       this.setCampers(campers)
-  //   });
-  // }
   componentDidMount(){
     console.log(this);
-    // this.fetchCampersData(this.setCampers);
     fetchCampersData().then(
       campers => { console.log(campers);
         this.setCampers(campers);
@@ -29,9 +21,6 @@ export default class Camper extends Component {
 
   render () {
     const { campers } = this.state;
-
-
-
     return (
       <tr className="camper-row">
         <th>1</th>

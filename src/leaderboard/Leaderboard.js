@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 
 import Camper from './Camper';
 
-const Leaderboard = props => {
-  return (
+const Leaderboard = () =>
     <div className="leaderboard">
       <div className="title">
         <h1>Leaderboard</h1>
@@ -20,11 +19,8 @@ const Leaderboard = props => {
         <tbody>
           {/* Camper here */}
           <Camper />
-
         </tbody>
       </table>
     </div>
-  )
-};
 
 export default Leaderboard;
