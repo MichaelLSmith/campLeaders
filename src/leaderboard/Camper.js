@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { fetchCampersData } from '../fetch';
+import { fetchCampersData } from '../functions/fetch';
 
 export default class Camper extends Component {
   constructor(){
@@ -18,7 +18,6 @@ export default class Camper extends Component {
         this.setCampers(campers);
        });
   }
-
   render () {
     const { campers } = this.state;
     return (

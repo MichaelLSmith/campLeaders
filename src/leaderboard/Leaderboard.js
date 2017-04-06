@@ -17,7 +17,6 @@ const Leaderboard = () =>
           </tr>
         </thead>
         <tbody>
-          {/* Camper here */}
           <Camper />
         </tbody>
       </table>
