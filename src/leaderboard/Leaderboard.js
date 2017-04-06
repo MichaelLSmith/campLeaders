@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { fetchCampersData } from '../functions/fetch';
+import shortid from 'shortid';
 
 import Camper from './Camper';
 
@@ -14,11 +15,9 @@ export default class Leaderboard extends Component {
     )
   }
   componentDidMount(){
-    console.log(this);
     fetchCampersData().then(
-      campers => { console.log(campers);
-        this.setCampers(campers);
-       });
+      campers => this.setCampers(campers)
+    );
   }
   render () {
     const {campers} = this.state;
@@ -37,7 +36,17 @@ export default class Leaderboard extends Component {
             </tr>
           </thead>
           <tbody>
-            <Camper campers={campers}/>
+            {campers.map (
+              (camper,count) => {
+              count += 1;
+              return (
+              <Camper
+                camper={camper}
+                key={shortid.generate()}
+                num={count}
+              />
+              )}
+            )}
           </tbody>
         </table>
       </div>
