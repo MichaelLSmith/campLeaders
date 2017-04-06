@@ -1,24 +1,31 @@
 import React, { Component } from 'react';
-import { fetchCampersData } from '../functions/fetch';
+import { fetchCampersData, sortData } from '../functions.js';
 import shortid from 'shortid';
 
 import Camper from './Camper';
 
 export default class Leaderboard extends Component {
-  constructor(){
+  constructor() {
     super();
     this.state = {campers: [ {"username":"forkerino","img":"https://avatars.githubusercontent.com/u/16620061?v=3","alltime":5000,"recent":545,"lastUpdate":"2017-03-17T17:49:58.192Z"}]}
   }
 
-  setCampers(campers){
+  setCampers(campers) {
+    // console.log(campers)
     this.setState({ campers: campers }
     )
   }
-  componentDidMount(){
+  componentDidMount() {
     fetchCampersData().then(
       campers => this.setCampers(campers)
     );
   }
+  handleSort(e,campers) {
+    console.log(e.target.id);
+    console.log(campers);
+    // sortData()
+  }
+
   render () {
     const {campers} = this.state;
     return (
@@ -31,7 +38,12 @@ export default class Leaderboard extends Component {
             <tr>
               <th>#</th>
               <th>Camper Name</th>
-              <th>Points in the past 30 days</th>
+              <th>
+                <a id="recent" href="#" onClick={(e) => this.handleSort(e,campers)}>
+                  {/* Note: createReactApp uses property initializer syntax so handleSort doesn't need to be bound. Read More towards the bottom of: https://facebook.github.io/react/docs/handling-events.html */}
+                  Points in the past 30 days
+                </a>
+              </th>
               <th>All time points</th>
             </tr>
           </thead>
