@@ -11,7 +11,6 @@ export default class Leaderboard extends Component {
   }
 
   setCampers(campers) {
-    // console.log(campers)
     this.setState({ campers: campers }
     )
   }
@@ -22,8 +21,6 @@ export default class Leaderboard extends Component {
   }
   handleSort(e,campers) {
     const {id} = e.target;
-    console.log(id);
-    console.log(campers);
     sortData(id, campers);
     this.setCampers(campers);
   }
