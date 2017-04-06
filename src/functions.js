@@ -6,7 +6,7 @@ export const fetchCampersData = (setCampers) => {
 
   });
 }
-export function sortData(order, data) {
+export function sortData(id, campers) {
   /*
   notes: default order is by recent.
 
@@ -16,6 +16,28 @@ export function sortData(order, data) {
 
   uses variable order to determine which key value to order array.
   */
+
+  //campers is an array of objects.
+
+  console.log(campers);
+
+  if(id == 'recent'){
+    campers.sort((a,b)=> b.recent - a.recent)
+  }
+  else {
+    campers.sort((a,b)=> b.alltime - a.alltime)
+  }
+
+return campers;
+
+  //RE-SORT BY RECENT
+  // campers.forEach(camper => {
+  //   camper.recent
+  // });
+
+  //RE-SORT BY alltime
+  // data.sort((a,b) => b.alltime - a.alltime)
+
 }
 
 /*

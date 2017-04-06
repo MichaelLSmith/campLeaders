@@ -21,9 +21,11 @@ export default class Leaderboard extends Component {
     );
   }
   handleSort(e,campers) {
-    console.log(e.target.id);
+    const {id} = e.target;
+    console.log(id);
     console.log(campers);
-    // sortData()
+    sortData(id, campers);
+    this.setCampers(campers);
   }
 
   render () {
@@ -44,7 +46,11 @@ export default class Leaderboard extends Component {
                   Points in the past 30 days
                 </a>
               </th>
-              <th>All time points</th>
+              <th>
+                <a id="alltime" href="#" onClick={(e) => this.handleSort(e,campers)}>
+                All time points
+                </a>
+              </th>
             </tr>
           </thead>
           <tbody>
